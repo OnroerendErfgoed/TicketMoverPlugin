@@ -15,10 +15,10 @@ setup(name='TicketMoverPlugin',
       license="BSD",
       py_modules=['ticketmoverplugin'],
       install_requires=[
-          'TracSQLHelper'
+          'TracSQLHelper==0.2.2'
       ],
       dependency_links=[
-          "svn+https://trac-hacks.org/svn/tracsqlhelperscript/1.2/#egg=TracSQLHelper",
+          "svn+https://trac-hacks.org/svn/tracsqlhelperscript/0.12/#egg=TracSQLHelper-0.2.2",
       ],
       entry_points={
           'trac.plugins': [
