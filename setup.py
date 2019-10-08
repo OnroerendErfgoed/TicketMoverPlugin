@@ -1,12 +1,12 @@
 from setuptools import setup
 
-version = '0.4.2'
+VERSION = '1.0a1'
 
-#this plugin was originally by Jeff Hammel <jhammel@openplans.org>
-#but I've substantially altered and mainted it for a while now.
+# this plugin was originally by Jeff Hammel <jhammel@openplans.org>
+# but I've substantially altered and maintained it for a while now.
 
 setup(name='TicketMoverPlugin',
-      version=version,
+      version=VERSION,
       description="move tickets from one Trac to a sibling Trac",
       author='Nathan Bird',
       author_email='nathan@acceleration.net',
@@ -15,6 +15,7 @@ setup(name='TicketMoverPlugin',
       license="BSD",
       py_modules=['ticketmoverplugin'],
       install_requires=[
+          'Trac>=1.4',
           'TracSQLHelper==0.2.2'
       ],
       dependency_links=[
