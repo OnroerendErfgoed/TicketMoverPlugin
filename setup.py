@@ -1,6 +1,6 @@
 from setuptools import setup
 
-VERSION = '1.0a1'
+VERSION = '1.0a2'
 
 # this plugin was originally by Jeff Hammel <jhammel@openplans.org>
 # but I've substantially altered and maintained it for a while now.
@@ -16,7 +16,7 @@ setup(name='TicketMoverPlugin',
       py_modules=['ticketmoverplugin'],
       install_requires=[
           'Trac>=1.4',
-          'TracSQLHelper==0.2.2'
+          'TracSQLHelper==0.3.1'
       ],
       dependency_links=[
           "svn+https://trac-hacks.org/svn/tracsqlhelperscript/0.12/#egg=TracSQLHelper-0.2.2",
