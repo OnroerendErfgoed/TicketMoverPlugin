@@ -1,18 +1,18 @@
 """
 TicketMoverPlugin:
 a plugin for Trac to move tickets from one Trac instance to another
-See: https://github.com/UnwashedMeme/TicketMoverPlugin
+From: https://github.com/UnwashedMeme/TicketMoverPlugin
 """
 import os
 import shutil
 import string
 
-from genshi.builder import tag
 from trac.core import Component, TracError, implements
 from trac.env import open_environment
 from trac.perm import PermissionCache
 from trac.ticket import Ticket
 from trac.ticket.api import ITicketActionController
+from trac.util.html import tag
 from tracsqlhelper import get_all_dict, insert_row_from_dict
 
 
@@ -22,12 +22,12 @@ class TicketMover(Component):
     def field_name(self, action, field):
         return "action_%s_%s" % (action, field)
 
-    ### methods for ITicketActionController
-    ## Extension point interface for components willing to participate
-    ## in the ticket workflow.
-    ##
-    ## This is mainly about controlling the changes to the ticket ''status'',
-    ## though not restricted to it.
+    # methods for ITicketActionController
+    # Extension point interface for components willing to participate
+    # in the ticket workflow.
+    #
+    # This is mainly about controlling the changes to the ticket ''status'',
+    # though not restricted to it.
     def apply_action_side_effects(self, req, ticket, action):
         """Perform side effects once all changes have been made to the ticket.
 
@@ -125,9 +125,10 @@ class TicketMover(Component):
 this ticket will be closed with resolution 'duplicate'. WARNING: references
 to this ticket will not be updated.""")
 
-    ### internal methods
+    # internal methods
 
     _projects = None
+    
     def projects(self):
         """Build the list of peer environments based upon directories
         that contain a conf/trac.ini file"""
@@ -164,7 +165,7 @@ to this ticket will not be updated.""")
         # make a new ticket from the old ticket values
         new_ticket = Ticket(env)
         new_ticket.values = old_ticket.values.copy()
-        new_ticket.insert(when=old_ticket.time_created)
+        new_ticket.insert(when=old_ticket.values['time'])
         self.log.debug("Ticket inserted into target environment as id %s",
                        new_ticket.id)
 
